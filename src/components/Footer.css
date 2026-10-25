@@ -1,0 +1,39 @@
+/* =========================
+   FOOTER (dark in both light and dark mode)
+========================= */
+.footer { background: #0B0F23; color: #AEB5D9; padding: 64px var(--gutter) 24px; }
+.footer-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.6fr; gap: 40px; padding-bottom: 44px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+/* min-width:0 lets each column shrink on small screens */
+.footer-top > * { min-width: 0; }
+
+.footer-brand .logo { color: #ffffff; }
+.footer-brand .logo-text span { color: var(--accent); }
+.footer-brand p { margin-top: 14px; max-width: 26em; font-size: 0.95rem; }
+
+.footer-column h4, .footer-newsletter h4 { color: #ffffff; margin-bottom: 16px; font-size: 1rem; font-family: var(--font-body); font-weight: 700; letter-spacing: 0; }
+.footer-column a { display: block; margin-bottom: 10px; transition: color var(--transition); }
+.footer-column a:hover { color: #ffffff; }
+
+.footer-bottom { padding-top: 24px; font-size: 0.875rem; }
+
+/* =========================
+   NEWSLETTER
+========================= */
+.newsletter-content { position: relative; min-height: 46px; }
+.newsletter-form { display: flex; gap: 8px; transition: all 0.4s ease; }
+.newsletter-form input { flex: 1; min-width: 0; padding: 12px 14px; border: 1px solid rgba(255, 255, 255, 0.18); border-radius: var(--radius-sm); outline: none; background: rgba(255, 255, 255, 0.06); color: #fff; font-family: inherit; }
+.newsletter-form input:focus { border-color: var(--accent); }
+.newsletter-form input::placeholder { color: #8F97BD; }
+.subscribe-btn { padding: 12px 18px; border-radius: var(--radius-sm); background: var(--accent); color: #0E1330; font-weight: 700; }
+.subscribe-btn:hover { filter: brightness(1.05); }
+
+/* The success message sits on top of the form, hidden at first */
+.success-msg { position: absolute; inset: 0; display: flex; align-items: center; gap: 10px; color: #6EE7A1; font-weight: 600; opacity: 0; visibility: hidden; transform: translateY(12px); transition: all 0.4s ease; }
+.tick-icon { background: #16A34A; color: #fff; border-radius: 50%; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.85rem; }
+
+/* When React adds the class "subscribed": hide the form, show the message */
+.newsletter-content.subscribed .newsletter-form { opacity: 0; visibility: hidden; transform: scale(0.97); }
+.newsletter-content.subscribed .success-msg { opacity: 1; visibility: visible; transform: translateY(0); }
+
+@media (max-width: 1024px) { .footer-top { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .footer-top { grid-template-columns: 1fr; } }

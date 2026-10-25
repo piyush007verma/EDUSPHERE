@@ -1,0 +1,12 @@
+/* Category filter buttons */
+.filter-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
+.chip { padding: 8px 18px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--text); font-weight: 500; font-size: 0.9rem; transition: all var(--transition); }
+.chip:hover { border-color: var(--ink); }
+.chip.active { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+
+/* Text above the grid after a search */
+.search-info { color: var(--muted); margin-bottom: 28px; }
+.search-info strong { color: var(--ink); }
+.search-info a { color: var(--primary); font-weight: 600; }
+.search-info a:hover { text-decoration: underline; }
+.no-results { color: var(--muted); font-size: 1.1rem; padding: 40px 0; }

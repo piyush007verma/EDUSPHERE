@@ -1,0 +1,46 @@
+/* =========================
+   SIDEBAR (slides in from the right)
+========================= */
+
+/* Dark layer behind the menu: invisible until the menu is open */
+.sidebar-overlay { position: fixed; inset: 0; background: rgba(8, 10, 30, 0.55); z-index: 1001; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s; }
+.sidebar-overlay.open { opacity: 1; visibility: visible; }
+
+/* The menu itself: parked OFF the screen (right: -320px) when closed */
+.sidebar-menu {
+  position: fixed; top: 0; right: -320px; width: min(320px, 86vw); height: 100vh;
+  background: var(--surface); border-left: 1px solid var(--line); z-index: 1002;
+  display: flex; flex-direction: column;
+  transition: right 0.35s ease, visibility 0.35s;
+  visibility: hidden;   /* so closed-menu links can't be reached with the Tab key */
+}
+/* ...and slid ON screen when it has the class "open" */
+.sidebar-menu.open { right: 0; visibility: visible; }
+
+.sidebar-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; border-bottom: 1px solid var(--line); }
+.sidebar-header h2 { font-size: 1.2rem; }
+.close-btn { width: 36px; height: 36px; border-radius: var(--radius-sm); color: var(--muted); font-size: 1rem; }
+.close-btn:hover { background: var(--tint); color: var(--ink); }
+
+.sidebar-links { padding: 12px 24px; display: flex; flex-direction: column; }
+.sidebar-links a { padding: 16px 0; font-size: 1.1rem; font-weight: 500; color: var(--ink); border-bottom: 1px solid var(--line); }
+.sidebar-links a:hover, .sidebar-links a.active { color: var(--primary); }
+.sidebar-links button { text-align: left; padding: 16px 0; font-size: 1.1rem; font-weight: 500; color: var(--ink); border-bottom: 1px solid var(--line); }
+.sidebar-links button:hover { color: var(--primary); }
+.sidebar-user { padding: 16px 0 0; color: var(--muted); }
+.sidebar-user strong { color: var(--ink); }
+
+/* =========================
+   DARK MODE SWITCH
+========================= */
+.theme-toggle-box { display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; margin-top: auto; border-top: 1px solid var(--line); font-weight: 600; color: var(--ink); }
+
+.switch { position: relative; display: inline-block; width: 48px; height: 28px; }
+/* The real checkbox is invisible; we draw our own switch with .slider */
+.switch input { opacity: 0; width: 0; height: 0; }
+.switch .slider { position: absolute; cursor: pointer; inset: 0; background: var(--line); border-radius: 34px; transition: 0.3s; }
+.switch .slider:before { position: absolute; content: ""; height: 20px; width: 20px; left: 4px; bottom: 4px; background: #fff; border-radius: 50%; transition: 0.3s; }
+/* Checked: colored background + the round knob moves right */
+.switch input:checked + .slider { background: var(--primary); }
+.switch input:checked + .slider:before { transform: translateX(20px); }
+.switch input:focus-visible + .slider { outline: 2px solid var(--primary); outline-offset: 2px; }

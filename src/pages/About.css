@@ -1,0 +1,18 @@
+/* Story: heading left, big paragraph right */
+.about-story { display: grid; grid-template-columns: 1fr 2fr; gap: 48px; margin-bottom: 72px; }
+.about-story h2 { font-size: clamp(1.9rem, 3.2vw, 2.6rem); }
+.about-story p { font-size: 1.25rem; line-height: 1.7; color: var(--text); }
+
+.mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.mission-card { padding: 44px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); }
+.mission-card h3 { font-size: 1.7rem; margin-bottom: 14px; }
+.mission-card p { color: var(--muted); font-size: 1.05rem; }
+/* The mission card is solid blue (fixed colors so it looks the same in dark mode) */
+.mission-primary { background: #3347FF; border-color: #3347FF; }
+.mission-primary h3 { color: #ffffff; }
+.mission-primary p { color: #E3E6FF; }
+
+@media (max-width: 900px) {
+  .about-story, .mission-grid { grid-template-columns: 1fr; }
+  .about-story { gap: 20px; margin-bottom: 48px; }
+}

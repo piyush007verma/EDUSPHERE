@@ -1,0 +1,139 @@
+/* =====================================================================
+   global.css  -  styles shared by the WHOLE website
+   (theme colors, fonts, reset, buttons, cards, section headings)
+   Every component also has its own small .css file next to it.
+   ===================================================================== */
+
+/* =========================
+   1. THEME VARIABLES (light mode = default)
+   Write a color once here, use it everywhere as var(--name).
+========================= */
+:root {
+  --bg: #F6F7FB;            /* page background (cool paper) */
+  --surface: #FFFFFF;       /* cards, inputs */
+  --ink: #0E1330;           /* headings */
+  --text: #2A3050;          /* normal text */
+  --muted: #667091;         /* secondary text */
+  --line: #E3E6F0;          /* thin borders */
+  --primary: #3347FF;       /* brand color (ultramarine) */
+  --primary-strong: #2434D9;
+  --on-primary: #FFFFFF;    /* text color ON a primary button */
+  --tint: #ECEEFF;          /* very light primary, for soft backgrounds */
+  --accent: #FFD23F;        /* yellow "highlighter" accent */
+  --success: #16A34A;
+
+  --radius: 14px;
+  --radius-sm: 10px;
+  --transition: 0.2s ease;
+  --font-display: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Hanken Grotesk', 'Segoe UI', system-ui, sans-serif;
+
+  /* Side space of every block: 24px on phones, and on big screens the
+     content is kept 1200px wide and centered. */
+  --gutter: max(24px, calc((100% - 1200px) / 2));
+}
+
+/* =========================
+   2. DARK MODE
+   React adds the class "dark" to .page-wrapper (see App.jsx).
+   These rules REPLACE the variables above, so everything re-colors itself.
+========================= */
+.page-wrapper.dark {
+  --bg: #0B0F23;
+  --surface: #141A36;
+  --ink: #F2F4FF;
+  --text: #C9CEE8;
+  --muted: #8F97BD;
+  --line: #262E57;
+  --primary: #7080FF;
+  --primary-strong: #8C99FF;
+  --on-primary: #0B0F23;
+  --tint: #1C2350;
+}
+
+/* =========================
+   3. RESET & PAGE WRAPPER
+========================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; border: none; cursor: pointer; background: none; color: inherit; }
+:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+
+/* Headings use the display font */
+h1, h2, h3, h4 { font-family: var(--font-display); color: var(--ink); line-height: 1.1; letter-spacing: -0.02em; }
+
+/* Wrapper: at least as tall as the screen, so the footer sits at the bottom */
+.page-wrapper {
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  transition: background-color var(--transition), color var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+main { flex: 1; }
+
+/* A normal content block of a page */
+.section { padding: 88px var(--gutter); }
+
+/* Heading of a section: title + sentence on the left, optional link on the right */
+.section-header { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 40px; }
+.section-header h2 { font-size: clamp(1.9rem, 3.2vw, 2.6rem); margin-bottom: 10px; }
+.section-header p { color: var(--muted); font-size: 1.05rem; max-width: 34em; }
+
+/* =========================
+   4. BUTTONS
+========================= */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 13px 24px; border-radius: var(--radius-sm);
+  font-weight: 600; font-size: 0.95rem;
+  transition: background var(--transition), color var(--transition), transform var(--transition);
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-primary { background: var(--primary); color: var(--on-primary); }
+.btn-primary:hover { background: var(--primary-strong); }
+.btn-outline { border: 1.5px solid var(--ink); color: var(--ink); }
+.btn-outline:hover { background: var(--ink); color: var(--bg); }
+.btn-sm { padding: 9px 18px; font-size: 0.9rem; }
+
+/* =========================
+   5. LOGO (Navbar + Footer)
+========================= */
+.logo { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-size: 1.45rem; font-weight: 800; letter-spacing: -0.03em; color: var(--ink); }
+.logo-text span { color: var(--primary); }
+.logo-icon path:nth-child(-n+2) { fill: var(--primary); }
+.logo-icon path:last-child { fill: var(--ink); }
+
+/* =========================
+   6. CARD (base look shared by course, review cards)
+========================= */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+.card:hover { transform: translateY(-4px); border-color: var(--primary); }
+
+/* People who ask their system for less motion get none */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
+
+/* =========================
+   7. FORM FIELDS (shared by the Sign in popup and the Checkout page)
+========================= */
+.field { margin-bottom: 18px; }
+.field > label { display: block; margin-bottom: 7px; font-weight: 600; font-size: 0.92rem; color: var(--ink); }
+.input { width: 100%; padding: 13px 14px; border: 1.5px solid var(--line); border-radius: var(--radius-sm); background: var(--bg); color: var(--ink); font-family: inherit; font-size: 1rem; transition: border-color var(--transition), box-shadow var(--transition); }
+.input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px var(--tint); }
+.input[readonly] { opacity: 0.7; cursor: not-allowed; }
+.input.has-error { border-color: #DC2626; }
+.field-error { margin-top: 6px; font-size: 0.85rem; color: #DC2626; }
+.page-wrapper.dark .field-error { color: #FCA5A5; }

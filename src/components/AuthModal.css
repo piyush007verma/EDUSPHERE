@@ -1,0 +1,27 @@
+/* =========================
+   SIGN IN / CREATE ACCOUNT POPUP
+========================= */
+.auth-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 4px; margin: 6px 36px 22px 0; background: var(--bg); border-radius: var(--radius-sm); }
+.auth-tabs button { padding: 9px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; color: var(--muted); transition: all var(--transition); }
+.auth-tabs button.active { background: var(--surface); color: var(--ink); box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12); }
+
+.form-error { padding: 12px 14px; margin-bottom: 18px; border-radius: var(--radius-sm); background: #FEE2E2; color: #991B1B; font-size: 0.9rem; font-weight: 500; }
+.page-wrapper.dark .form-error { background: #451A1A; color: #FCA5A5; }
+
+/* Password box with the Show / Hide button inside it */
+.password-wrap { position: relative; }
+.password-wrap .input { padding-right: 68px; }
+.show-btn { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); padding: 6px 10px; border-radius: 6px; font-size: 0.82rem; font-weight: 600; color: var(--primary); }
+.show-btn:hover { background: var(--tint); }
+
+/* Password strength meter */
+.strength { display: flex; align-items: center; gap: 12px; margin-top: 10px; }
+.strength-bars { display: flex; gap: 5px; flex: 1; }
+.bar { height: 5px; flex: 1; border-radius: 3px; background: var(--line); transition: background var(--transition); }
+.bar.on.level-1 { background: #EF4444; }
+.bar.on.level-2 { background: #F59E0B; }
+.bar.on.level-3 { background: #84CC16; }
+.bar.on.level-4 { background: #16A34A; }
+.strength-label { font-size: 0.82rem; font-weight: 600; color: var(--muted); min-width: 64px; text-align: right; }
+
+.auth-note { margin-top: 16px; text-align: center; font-size: 0.8rem; color: var(--muted); }

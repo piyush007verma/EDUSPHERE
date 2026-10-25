@@ -1,0 +1,39 @@
+/* =========================
+   CHECKOUT PAGE
+========================= */
+.checkout-layout { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 40px; align-items: start; }
+.checkout-form { display: flex; flex-direction: column; gap: 24px; }
+.panel { padding: 28px; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; }
+.panel h2 { font-size: 1.4rem; margin-bottom: 20px; }
+.panel .btn-block { display: flex; width: 100%; margin-top: 22px; padding: 15px; font-size: 1rem; }
+.panel .btn[disabled] { opacity: 0.65; cursor: not-allowed; transform: none; }
+.payment-error { margin-top: 18px; padding: 12px 14px; border-radius: var(--radius-sm); background: #FEE2E2; color: #991B1B; font-size: 0.9rem; font-weight: 500; }
+.page-wrapper.dark .payment-error { background: #451A1A; color: #FCA5A5; }
+.payment-error + .btn-block { margin-top: 14px; }
+.demo-note { margin-top: 12px; text-align: center; font-size: 0.82rem; color: var(--muted); }
+
+/* List of courses in the summary */
+.checkout-items { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+.checkout-items li { display: flex; align-items: center; gap: 12px; font-size: 0.92rem; color: var(--ink); }
+.checkout-items img { width: 56px; height: 40px; border-radius: 6px; object-fit: cover; }
+.checkout-items span { flex: 1; font-weight: 500; }
+
+/* Order confirmed */
+.confirm-card { max-width: 560px; margin: 0 auto; padding: 40px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; text-align: center; }
+.confirm-tick { width: 68px; height: 68px; margin: 0 auto 18px; border-radius: 50%; background: var(--success); color: #fff; font-size: 2rem; display: flex; align-items: center; justify-content: center; }
+.confirm-card h2 { font-size: 1.9rem; margin-bottom: 8px; }
+.confirm-id { color: var(--muted); margin-bottom: 22px; }
+.confirm-id strong { color: var(--ink); letter-spacing: 1px; }
+.confirm-items { list-style: none; text-align: left; border-top: 1px solid var(--line); }
+.confirm-items li { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); color: var(--ink); font-weight: 500; }
+.confirm-card .order-lines { text-align: left; }
+.confirm-mail { color: var(--muted); font-size: 0.9rem; margin-bottom: 24px; }
+.confirm-buttons { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+
+@media (max-width: 900px) {
+  .checkout-layout { grid-template-columns: minmax(0, 1fr); }
+  .checkout-layout .summary-card { position: static; order: -1; }
+}
+@media (max-width: 520px) {
+  .panel, .confirm-card { padding: 22px 18px; }
+}

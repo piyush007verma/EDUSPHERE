@@ -1,0 +1,11 @@
+.orders-list { display: flex; flex-direction: column; gap: 20px; max-width: 800px; margin: 0 auto; }
+.order-card { padding: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+.order-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding-bottom: 14px; margin-bottom: 8px; border-bottom: 1px solid var(--line); }
+.order-head strong { color: var(--ink); }
+.order-head span { display: block; color: var(--muted); font-size: 0.88rem; }
+.order-total { font-family: var(--font-display); font-size: 1.4rem; }
+.order-card ul { list-style: none; }
+.order-card li { display: flex; justify-content: space-between; gap: 16px; padding: 9px 0; color: var(--text); }
+.order-card li a { font-weight: 600; color: var(--ink); }
+.order-card li a:hover { color: var(--primary); }
+.order-saved { margin-top: 8px; font-size: 0.88rem; font-weight: 600; color: var(--success); }

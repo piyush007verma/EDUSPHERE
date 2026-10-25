@@ -1,0 +1,9 @@
+/* 4 points in a row; they wrap by themselves on smaller screens */
+.why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 36px; }
+.why-card { padding-top: 20px; border-top: 3px solid var(--ink); }
+.why-card:first-child { border-top-color: var(--primary); }
+.why-card h3 { font-size: 1.25rem; margin-bottom: 8px; }
+.why-card p { color: var(--muted); }
+
+/* Light band behind this section so the page has rhythm */
+.why-section { background: var(--surface); border-block: 1px solid var(--line); }

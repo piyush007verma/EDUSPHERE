@@ -1,0 +1,54 @@
+/* =========================
+   NAVBAR  (sticky: stays at the top while you scroll)
+========================= */
+.navbar {
+  position: sticky; top: 0; z-index: 1000;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.navbar-container { display: flex; align-items: center; gap: 32px; height: 68px; padding-inline: var(--gutter); }
+
+.nav-links { display: flex; align-items: center; gap: 28px; margin-left: auto; }
+.nav-links a { position: relative; font-weight: 500; font-size: 0.95rem; color: var(--muted); transition: color var(--transition); }
+.nav-links a:hover, .nav-links a.active { color: var(--ink); }
+/* Blue underline under the page you are on */
+.nav-links a.active::after { content: ''; position: absolute; left: 0; right: 0; bottom: -8px; height: 2px; background: var(--primary); }
+
+.nav-actions { display: flex; align-items: center; gap: 12px; }
+
+.theme-btn, .hamburger-btn {
+  width: 40px; height: 40px; border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ink); transition: background var(--transition);
+}
+.theme-btn { border: 1px solid var(--line); background: var(--surface); }
+.theme-btn:hover, .hamburger-btn:hover { background: var(--tint); }
+
+/* Cart icon + number badge */
+.cart-btn { position: relative; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface); color: var(--ink); display: flex; align-items: center; justify-content: center; transition: background var(--transition); }
+.cart-btn:hover { background: var(--tint); }
+.cart-count { position: absolute; top: -7px; right: -7px; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 999px; background: var(--primary); color: var(--on-primary); font-size: 0.72rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+
+/* Signed-in user: round letter + name, opens a small menu */
+.user-menu { position: relative; }
+.user-trigger { display: flex; align-items: center; gap: 10px; padding: 4px 12px 4px 4px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); transition: background var(--transition); }
+.user-trigger:hover { background: var(--tint); }
+.user-avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--primary); color: var(--on-primary); font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.user-name { font-weight: 600; font-size: 0.92rem; color: var(--ink); max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.dropdown { position: absolute; right: 0; top: calc(100% + 10px); min-width: 230px; padding: 8px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15); z-index: 1100; }
+.dropdown-name { padding: 8px 12px 0; font-weight: 700; color: var(--ink); }
+.dropdown-email { padding: 0 12px 10px; margin-bottom: 6px; border-bottom: 1px solid var(--line); font-size: 0.85rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; }
+.dropdown a, .dropdown button { display: block; width: 100%; padding: 10px 12px; border-radius: 8px; text-align: left; font-size: 0.95rem; font-weight: 500; color: var(--text); }
+.dropdown a:hover, .dropdown button:hover { background: var(--tint); color: var(--ink); }
+
+/* The hamburger only exists on phones */
+.hamburger-btn { display: none; }
+
+@media (max-width: 768px) {
+  .navbar-container { height: 62px; }
+  .nav-links, .auth-btn, .user-menu { display: none; }   /* these move into the sidebar */
+  .nav-actions { margin-left: auto; }
+  .hamburger-btn { display: flex; }
+}

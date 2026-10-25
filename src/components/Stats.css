@@ -1,0 +1,16 @@
+/* =========================
+   STATISTICS STRIP: 4 numbers separated by thin lines
+========================= */
+.statistics { display: grid; grid-template-columns: repeat(4, 1fr); padding: 44px var(--gutter); border-block: 1px solid var(--line); background: var(--surface); }
+.stat-item { padding-left: 28px; border-left: 1px solid var(--line); }
+.stat-item:first-child { padding-left: 0; border-left: none; }
+.stat-item h3 { font-size: clamp(2rem, 3.6vw, 2.8rem); font-weight: 800; color: var(--primary); letter-spacing: -0.03em; }
+.stat-item p { color: var(--muted); font-weight: 500; }
+
+@media (max-width: 768px) {
+  .statistics { grid-template-columns: repeat(2, 1fr); row-gap: 28px; }
+  .stat-item:nth-child(3) { padding-left: 0; border-left: none; }
+}
+
+/* Digits all have the same width, so the number does not wobble while counting */
+.count-up { display: inline-block; font-variant-numeric: tabular-nums; }

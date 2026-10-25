@@ -1,0 +1,100 @@
+/* =====================================================================
+   CourseDetail.css  -  styles ONLY for the course detail page.
+   Colors use the theme variables, so dark mode works here too.
+   ===================================================================== */
+
+/* =========================
+   HERO (dark banner, same in light and dark mode)
+========================= */
+.course-hero { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center; padding: 56px var(--gutter) 64px; background: #0E1330; color: #ffffff; }
+
+.breadcrumb { font-size: 0.9rem; color: #8F97BD; margin-bottom: 20px; }
+.breadcrumb a:hover { color: #ffffff; text-decoration: underline; }
+
+.course-badge { display: inline-block; background: var(--accent); color: #0E1330; padding: 4px 14px; border-radius: 999px; font-size: 0.85rem; font-weight: 700; margin-bottom: 18px; }
+.course-hero-content h1 { font-size: clamp(2.2rem, 4.6vw, 3.6rem); letter-spacing: -0.035em; color: #ffffff; margin-bottom: 18px; }
+.course-hero-content > p:not(.breadcrumb) { color: #C5CBEA; font-size: 1.1rem; margin-bottom: 26px; max-width: 34em; }
+.course-hero-stats { display: flex; flex-wrap: wrap; gap: 10px; }
+.course-hero-stats span { font-size: 0.9rem; padding: 6px 14px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.2); color: #E3E6FF; }
+
+.course-hero-image img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.15); }
+
+/* =========================
+   PAGE LAYOUT: content + sticky price card
+========================= */
+.course-container { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 56px; align-items: start; padding: 64px var(--gutter); }
+.course-content > section { margin-bottom: 56px; }
+.course-heading { font-size: 1.7rem; margin-bottom: 22px; }
+.course-about { color: var(--muted); font-size: 1.05rem; margin-bottom: 36px; }
+
+/* =========================
+   PRICE CARD (stays in view while scrolling)
+========================= */
+.course-sidebar { position: sticky; top: 92px; }
+.info-card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 28px; }
+.info-card .price { font-family: var(--font-display); font-size: 2.8rem; font-weight: 800; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 18px; }
+.info-list { list-style: none; margin-bottom: 24px; }
+.info-list li { display: flex; justify-content: space-between; padding: 13px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.95rem; }
+.info-list li span:last-child { font-weight: 700; color: var(--ink); }
+.enroll-btn { display: block; width: 100%; font-size: 1rem; padding: 15px; border-radius: var(--radius-sm); background: var(--primary); color: var(--on-primary); text-align: center; font-weight: 700; transition: background var(--transition), transform var(--transition); }
+.cart-link-btn { display: block; width: 100%; margin-top: 10px; padding: 14px; border: 1.5px solid var(--ink); border-radius: var(--radius-sm); text-align: center; font-size: 1rem; font-weight: 600; color: var(--ink); transition: all var(--transition); }
+.cart-link-btn:hover { background: var(--ink); color: var(--bg); }
+.enroll-btn:hover { background: var(--primary-strong); transform: translateY(-1px); }
+
+/* =========================
+   CONTENT BLOCKS
+========================= */
+.highlights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.highlight-item { position: relative; padding: 20px 20px 20px 60px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm); }
+/* round check mark on the left */
+.highlight-item::before { content: "✓"; position: absolute; left: 18px; top: 20px; width: 28px; height: 28px; border-radius: 50%; background: var(--tint); color: var(--primary); font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.highlight-item h4 { font-family: var(--font-body); font-size: 1rem; font-weight: 700; letter-spacing: 0; margin-bottom: 4px; }
+.highlight-item p { color: var(--muted); font-size: 0.92rem; }
+
+.learn-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px 24px; list-style: none; }
+.learn-list li { position: relative; padding-left: 28px; }
+.learn-list li::before { content: "✓"; position: absolute; left: 0; color: var(--primary); font-weight: 700; }
+
+/* Curriculum: one bordered box, each module is a row.  [MODULE 01] [title] [lessons] */
+.curriculum-list { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.module-card { display: grid; grid-template-columns: 96px 1fr auto; align-items: center; gap: 16px; padding: 18px 24px; border-bottom: 1px solid var(--line); transition: background var(--transition); }
+.module-card:last-child { border-bottom: none; }
+.module-card:hover { background: var(--tint); }
+.module-card h5 { font-family: var(--font-body); font-size: 0.8rem; font-weight: 600; color: var(--primary); letter-spacing: 0; }
+.module-card h3 { font-size: 1.05rem; letter-spacing: -0.01em; }
+.module-card p { color: var(--muted); font-size: 0.9rem; }
+
+.req-list { margin-left: 1.3rem; color: var(--muted); line-height: 1.9; }
+
+/* "Who is this for": small rounded tags */
+.who-for-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+.who-card { padding: 10px 20px; border-radius: 999px; background: var(--tint); color: var(--ink); font-weight: 600; }
+
+.instructor-card { display: flex; gap: 24px; align-items: center; padding: 28px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+.instructor-img { width: 96px; height: 96px; flex-shrink: 0; border-radius: 50%; object-fit: cover; }
+.instructor-info h3 { font-size: 1.4rem; }
+.instructor-info p { color: var(--muted); margin-top: 6px; }
+.instructor-info p:nth-of-type(1) { color: var(--primary); font-weight: 600; }
+
+/* =========================
+   FINAL CALL TO ACTION (solid blue in both modes)
+========================= */
+.final-cta { background: #3347FF; color: #ffffff; text-align: center; padding: 80px var(--gutter); }
+.final-cta h2 { color: #ffffff; font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 14px; }
+.final-cta p { color: #E3E6FF; margin-bottom: 28px; }
+.cta-btn { display: inline-block; font-size: 1rem; background: #ffffff; color: #2434D9; padding: 14px 32px; border-radius: var(--radius-sm); font-weight: 700; transition: transform var(--transition); }
+.cta-btn:hover { transform: translateY(-2px); }
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 992px) {
+  .course-container { grid-template-columns: minmax(0, 1fr); }
+  .course-sidebar { position: static; order: -1; }   /* price card moves above the content */
+}
+@media (max-width: 768px) {
+  .course-hero { grid-template-columns: 1fr; gap: 32px; padding-top: 40px; }
+  .module-card { grid-template-columns: 1fr auto; }
+  .module-card h5 { grid-column: 1 / -1; }
+  .instructor-card { flex-direction: column; text-align: center; }
+}

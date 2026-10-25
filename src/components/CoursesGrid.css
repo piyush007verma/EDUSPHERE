@@ -1,0 +1,6 @@
+/* =========================
+   COURSES GRID
+   auto-fill + minmax: as many columns of at least 300px as fit.
+   So it is 3 columns on desktop, 2 on tablet, 1 on phone, with no media query.
+========================= */
+.courses-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 28px; }

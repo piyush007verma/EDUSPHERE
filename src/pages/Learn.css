@@ -1,0 +1,92 @@
+/* =====================================================================
+   LEARNING PAGE (Coursera-style)
+   ===================================================================== */
+
+/* ---------- Top bar ---------- */
+.learn-bar { display: flex; align-items: center; gap: 24px; padding: 14px var(--gutter); background: #0E1330; color: #ffffff; }
+.learn-back { font-size: 0.9rem; font-weight: 600; color: #C5CBEA; white-space: nowrap; }
+.learn-back:hover { color: #ffffff; }
+.learn-bar h1 { flex: 1; min-width: 0; font-size: 1.15rem; letter-spacing: -0.01em; color: #ffffff; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.learn-progress { display: flex; align-items: center; gap: 12px; font-size: 0.85rem; font-weight: 600; white-space: nowrap; }
+.progress-track { width: 160px; height: 8px; border-radius: 999px; background: rgba(255, 255, 255, 0.2); overflow: hidden; }
+.progress-fill { height: 100%; border-radius: 999px; background: var(--accent); transition: width 0.5s ease; }
+
+/* ---------- Two columns: video | course content ---------- */
+.learn-layout { display: grid; grid-template-columns: minmax(0, 1fr) 380px; align-items: start; }
+.learn-main { padding: 32px 40px 64px var(--gutter); }
+
+/* 16:9 video box */
+.player { position: relative; aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; background: #000; }
+.player iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.player-help { margin-top: 10px; font-size: 0.85rem; color: var(--muted); }
+.player-help a { color: var(--primary); font-weight: 600; }
+.player-help a:hover { text-decoration: underline; }
+
+.lesson-path { margin-top: 22px; font-size: 0.9rem; font-weight: 600; color: var(--primary); }
+.lesson-title { font-size: clamp(1.5rem, 2.6vw, 2rem); margin: 4px 0 18px; }
+
+/* ---------- Buttons under the video ---------- */
+.lesson-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.lesson-actions .btn[disabled] { opacity: 0.45; cursor: not-allowed; transform: none; }
+.lesson-actions .btn-outline[disabled]:hover { background: transparent; color: var(--ink); }
+.complete-btn { border: 1.5px solid var(--success); color: var(--success); background: transparent; }
+.complete-btn:hover { background: var(--success); color: #fff; }
+.complete-btn.done { background: var(--success); color: #fff; }
+
+.course-complete { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 20px; padding: 14px 18px; border-radius: var(--radius-sm); background: #DCFCE7; color: #166534; }
+.course-complete a { font-weight: 700; text-decoration: underline; }
+.page-wrapper.dark .course-complete { background: #0F3D24; color: #86EFAC; }
+
+/* ---------- Tabs ---------- */
+.learn-tabs { display: flex; gap: 28px; margin-top: 32px; border-bottom: 1px solid var(--line); }
+.learn-tabs button { padding: 12px 0; margin-bottom: -1px; font-weight: 600; color: var(--muted); border-bottom: 3px solid transparent; transition: color var(--transition); }
+.learn-tabs button:hover { color: var(--ink); }
+.learn-tabs button.active { color: var(--ink); border-bottom-color: var(--primary); }
+.tab-panel { padding-top: 24px; max-width: 760px; }
+.tab-panel h3 { font-size: 1.15rem; margin-bottom: 8px; }
+.tab-panel p { color: var(--muted); margin-bottom: 22px; }
+.tab-panel .instructor-line strong { color: var(--ink); }
+.notes-box { min-height: 200px; resize: vertical; }
+
+/* ---------- Right column: course content ---------- */
+.learn-sidebar { position: sticky; top: 68px; max-height: calc(100vh - 68px); overflow-y: auto; padding: 24px 20px 40px; border-left: 1px solid var(--line); background: var(--surface); }
+.learn-sidebar > h3 { font-size: 1.15rem; margin-bottom: 14px; }
+
+.module { border: 1px solid var(--line); border-radius: var(--radius-sm); margin-bottom: 10px; overflow: hidden; }
+.module-head { display: flex; align-items: center; gap: 10px; width: 100%; padding: 14px 16px; text-align: left; background: var(--bg); transition: background var(--transition); }
+.module-head:hover { background: var(--tint); }
+.module-name { flex: 1; font-weight: 700; font-size: 0.95rem; color: var(--ink); line-height: 1.3; }
+.module-name small { display: block; margin-bottom: 2px; font-size: 0.75rem; font-weight: 600; color: var(--muted); }
+.module-count { font-size: 0.8rem; font-weight: 600; color: var(--muted); }
+.chevron { font-size: 0.8rem; color: var(--muted); transition: transform 0.25s ease; }
+.chevron.open { transform: rotate(180deg); }
+
+.lesson-list { list-style: none; }
+.lesson-row { display: flex; align-items: flex-start; gap: 12px; width: 100%; padding: 12px 16px; text-align: left; border-top: 1px solid var(--line); border-left: 3px solid transparent; background: var(--surface); transition: background var(--transition); }
+.lesson-row:hover { background: var(--tint); }
+.lesson-row.active { background: var(--tint); border-left-color: var(--primary); }
+.lesson-status { flex-shrink: 0; width: 22px; height: 22px; margin-top: 1px; border: 2px solid var(--line); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 700; color: var(--primary); }
+.lesson-status.done { background: var(--success); border-color: var(--success); color: #fff; font-size: 0.75rem; }
+.lesson-row.active .lesson-status:not(.done) { border-color: var(--primary); }
+.lesson-name { font-size: 0.92rem; font-weight: 500; color: var(--ink); line-height: 1.35; }
+.lesson-name small { display: block; margin-top: 2px; font-size: 0.75rem; color: var(--muted); }
+
+/* ---------- Locked course ---------- */
+.locked { text-align: center; padding-top: 100px; padding-bottom: 100px; }
+.locked h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 12px; }
+.locked p { color: var(--muted); margin-bottom: 26px; }
+.locked-buttons { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1000px) {
+  .learn-layout { grid-template-columns: minmax(0, 1fr); }
+  .learn-main { padding: 24px var(--gutter) 24px; }
+  .learn-sidebar { position: static; max-height: none; border-left: none; border-top: 1px solid var(--line); padding: 24px var(--gutter) 48px; }
+  .learn-bar { flex-wrap: wrap; gap: 8px 16px; }
+  .learn-bar h1 { order: 3; flex-basis: 100%; white-space: normal; }
+  .learn-progress { margin-left: auto; }
+}
+@media (max-width: 520px) {
+  .progress-track { width: 90px; }
+  .lesson-actions .btn { flex: 1; padding-inline: 10px; }
+}

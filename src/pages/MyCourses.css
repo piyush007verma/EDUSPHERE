@@ -1,0 +1,9 @@
+.my-courses-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 28px; }
+.my-course-image { display: block; aspect-ratio: 16 / 10; overflow: hidden; }
+.my-course-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+.my-course:hover .my-course-image img { transform: scale(1.04); }
+.my-course-body { padding: 22px; }
+.my-course-body h3 { font-size: 1.3rem; margin: 4px 0 16px; }
+.my-progress { margin-bottom: 18px; font-size: 0.85rem; color: var(--muted); }
+.my-progress-track { height: 8px; margin-bottom: 8px; border-radius: 999px; background: var(--line); overflow: hidden; }
+.my-progress-fill { height: 100%; border-radius: 999px; background: var(--success); transition: width 0.5s ease; }
